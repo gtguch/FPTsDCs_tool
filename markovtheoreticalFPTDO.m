@@ -1,9 +1,9 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % A script to evaluate first passae time distribution (FPTD) based on the
 % theoretical equation
 %  fptd: FPTD for diffusion with the stochastic diffusion coefficient
-% dfptd: FPTD for the corresponding deterministic diffusion 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dfptd: FPTD for the corresponding diffusion with ensemble-averaged diffusivity
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % clear all parameters and close all figures
 clear;
@@ -44,6 +44,7 @@ for j = 1:n
     fptdw(:,j) = (nD(j,:)./sqrt(4 * pi * Dmd * H(j,:).^3 .* tt.^3)) .* exp(-1./(4 * Dmd * H(j,:) .* tt)) * res;
 end
 fptd = mean(fptdw,2);   
+
 
 
 
