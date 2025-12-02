@@ -1,7 +1,7 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% A script to evaluate the proportion of preceding particles
-% ppp: the proportion of preceding particles
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A script to evaluate the cumulative probability of early arriving particles
+% ppp: the cumulative probability of early arriving particles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % clear all parameters and close all figures
 clear;
@@ -16,7 +16,7 @@ Dd = 0.2;       % diffusion coefficient at - state
 res = 0.01;     % time resolution
 maxid = 1000;   % time length
 
-% calculate the proportion of preceding particles
+% calculate the cumulative probability of early arriving particles
 [Dc, leng] = tsMDudO(tp,n,l,Du,Dd,res,maxid);
 
 tt = res:res:maxid;
@@ -34,6 +34,7 @@ nD = D/Dm;
 H = taveragDO(nD, leng);
 erfcH = erfc((2)./sqrt(H));
 ppp = mean(erfcH);
+
 
 
 
